@@ -95,6 +95,77 @@ def menu2():
 menu2()
 
 
+# exercise 008
+
+nm = float(input('Insira um valor em metros ->  '))
+
+nm_cm = nm * 100
+nm_mm = nm * 1000
+
+print('O valor digitado, em centimetros vale {} e em milimetros vale {}'.format(nm_cm, nm_mm))
+
+
+
+# exercise 009 - tabuada sem usar o for
+
+tabuada = int(input('Digite um numero para ver sua tabuada:  '))
+
+print(10 * '-')
+print('\n{} x {:2} = {}'.format(tabuada, 1, tabuada*1))
+print('{} x {:2} = {}'.format(tabuada, 2, tabuada*2))
+print('{} x {:2} = {}'.format(tabuada, 3, tabuada*3))
+print('{} x {:2} = {}'.format(tabuada, 4, tabuada*4))
+print('{} x {:2} = {}'.format(tabuada, 5, tabuada*5))
+print('{} x {:2} = {}'.format(tabuada, 6, tabuada*6))
+print('{} x {:2} = {}'.format(tabuada, 7, tabuada*7))
+print('{} x {:2} = {}'.format(tabuada, 8, tabuada*8))
+print('{} x {:2} = {}'.format(tabuada, 9, tabuada*9))
+print('{} x {:2} = {}\n'.format(tabuada, 10, tabuada*10))
+print(10 * '-')
+
+
+# exercise 010
+
+import requests
+
+cart = float(input('Quanto de dinheiro voce tem na carteira? ->  '))
+
+def pegar_cotacoes():
+    requisicao = requests.get('http://economia.awesomeapi.com.br/json/last/USD-BRL')
+
+    requisicao_dic = requisicao.json()
+
+    dolar_req = float(requisicao_dic['USDBRL']['bid'])
+
+    convertido = cart / dolar_req
+
+    print(10 * '-')
+    print("\nO valor atual do dolar esta em: R$ {:.2f}".format(dolar_req))
+    print("Com R$ {:.2f} voce pode comprar U$ {:.2f}\n".format(cart, convertido))
+    print(10 * '-')
+
+pegar_cotacoes()
+
+
+# exercise 011
+
+larg_parede = float(input('Qual a largura da sua parede?  '))
+alt_parede = float(input('Qual a altura da sua parede?  '))
+
+area = larg_parede * alt_parede
+tinta_total = area / 2
+
+print('Sua parede tem {} metros quadrados, e sera necessario utilizar {} litros de tinta para pintar essa area total.'.format(area, tinta_total))
+
+
+# exercise 012
+
+preco_antigo = float(input('Digite o preco atual do seu produto: R$ '))
+novo_preco = preco_antigo - (preco_antigo * 0.05)
+
+print('O produto custava R$ {:.2f}, e com o reajuste de 5%, seu novo preco ficou em R$ {:.2f}'.format(preco_antigo, novo_preco))
+
+
 # exercise 015
 # Escreva um programa que pergunte a quantidade de Km percorridos por um carro alugado e a quantidade de dias pelos quais ele foi alugado. Calcule o preço a pagar, sabendo que o carro custa R$60 por dia e R$0,15 por Km rodado.
 
